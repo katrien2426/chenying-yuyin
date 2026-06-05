@@ -1,2 +1,5 @@
 m4a/
 启动播放器.command
+.DS_Store
+.claude/
+fonts/
