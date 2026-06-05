@@ -268,6 +268,38 @@ document.addEventListener('keydown',function(e){
 });
 buildList();
 document.getElementById('em').textContent=['katrienwang','gmail.com'].join('@');
+
+// 移动端背景左右滑动
+(function(){
+  var bg=document.getElementById('bg-layer');
+  var startX,startY,startPos,dragging=false;
+  var pos=20; // 初始位置 %
+
+  function getPos(){return pos}
+
+  document.addEventListener('touchstart',function(e){
+    if(e.touches.length!==1)return;
+    startX=e.touches[0].clientX;
+    startY=e.touches[0].clientY;
+    startPos=pos;
+    dragging=false;
+  },{passive:true});
+
+  document.addEventListener('touchmove',function(e){
+    if(e.touches.length!==1)return;
+    var dx=e.touches[0].clientX-startX;
+    var dy=e.touches[0].clientY-startY;
+    // 只有横向滑动幅度大于纵向时才移动背景
+    if(!dragging&&Math.abs(dx)<Math.abs(dy))return;
+    dragging=true;
+    // 屏幕宽度对应约 60% 的范围（图比屏宽很多）
+    var pct=startPos - (dx/window.innerWidth)*60;
+    pos=Math.max(0,Math.min(100,pct));
+    bg.style.backgroundPosition=pos+'% center';
+  },{passive:true});
+
+  document.addEventListener('touchend',function(){dragging=false});
+})();
 </script>
 </body>
 </html>
