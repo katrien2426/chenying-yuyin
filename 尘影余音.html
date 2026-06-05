@@ -70,6 +70,7 @@ body{background:#0f0f14;color:var(--text);font-family:'Noto Serif SC','Hiragino 
 #footer .sep{opacity:0.3}
 #menu-btn{display:none;background:none;border:none;color:var(--text);font-size:22px;cursor:pointer;padding:0 8px}
 @media(max-width:640px){
+  #bg-layer{background-position:20% center !important}
   #menu-btn{display:block}
   #sidebar{position:fixed;left:-260px;top:0;height:100%;z-index:100;transition:left .25s;width:260px}
   #sidebar.open{left:0;box-shadow:4px 0 20px rgba(0,0,0,.6)}
@@ -91,7 +92,7 @@ body{background:#0f0f14;color:var(--text);font-family:'Noto Serif SC','Hiragino 
 </style>
 </head>
 <body>
-<div style="position:fixed;inset:0;background:url('8FCA9E47B7ECC77049AFC8DF8AF18133.png') center/cover no-repeat;z-index:-1"></div>
+<div id="bg-layer" style="position:fixed;inset:0;background:url('8FCA9E47B7ECC77049AFC8DF8AF18133.png') center/cover no-repeat;z-index:-1"></div>
 <div id="sidebar">
   <div id="sb-head"><h1>尘影余音</h1><p>アークナイツ ドラマCD</p></div>
   <div id="track-list"></div>
